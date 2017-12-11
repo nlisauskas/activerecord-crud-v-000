@@ -49,24 +49,16 @@ def can_find_the_first_item_from_the_database_using_id
 end
 
 def can_find_by_multiple_attributes
-  title == "Title"
-  release_date == 2000
-  director == "Me"
-  Movie.find_by(title)
-  Movie.find_by(release_date)
-  Movie.find_by(director)
+  #title == "Title"
+  #release_date == 2000
+  #director == "Me"
+  Movie.find_by(:title => "Title", :release_date => 2000, :director = "Me")
 end
 
 def can_find_using_where_clause_and_be_sorted
   # For this test return all movies released after 2002 and ordered by
   # release date descending
-  sql = <<-sql
-  SELECT movies.title
-  FROM movies
-  WHERE release_date > 2002
-  ORDER BY release_date DESC
-  sql
-  DB[:conn].execute(sql)
+
 end
 
 def can_be_found_updated_and_saved
